@@ -55,7 +55,7 @@ def web_scraping_bot(url):
         bd = get_bd(book_id)
         # attrs={'class': 'type02_p003'}) 同class_='type02_p003'
         for item in bd.find('div', attrs={'class': 'type02_p003'}).find_all('li'):
-            # 
+            # 如果此關鍵字在變成文檔的item中
             if '作者' in item.text:
                 # 將item變成文檔 並取代
                 book_author = item.text.replace('  ', '')[3:]
