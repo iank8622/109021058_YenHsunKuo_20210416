@@ -74,4 +74,5 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         url = generate_search_url(URL, sys.argv[1])
         booklist = web_scraping_bot(url)
+        # *將list中所有元素分次輸出
         print(*booklist, sep='\n')
