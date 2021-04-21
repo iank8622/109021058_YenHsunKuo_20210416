@@ -1,13 +1,4 @@
-# -*- coding: utf-8 -*-
-
-"""
- * 安裝模組：
- *  bs4
- *  fake_useragent
- *  requests
-"""
 from bs4 import BeautifulSoup
-from fake_useragent import UserAgent
 from random import randint
 import sys
 import requests
@@ -20,9 +11,8 @@ def generate_search_url(url, keywd):
     return url.format(keywd)
 
 def get_resource(url):
-    ua = UserAgent()
     headers = {
-        'user-agent': ua.random
+        "user-agent" : "Mozilla/5.0 (Windoes NT 10.0; Win64; x64) AppWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36"
     }
     return requests.get(url, headers=headers)
 
@@ -49,7 +39,7 @@ def web_scraping_bot(url):
         book_title = book.find('div', attrs={'class': 'box_1'}).a.get('title')
 
         # 降低請求頻率以防止伺服器阻擋
-        delay = randint(30, 60)
+        delay = randint(1, 5)
         print('Scraping delay {0} sec...'.format(delay))
         time.sleep(delay)
 
